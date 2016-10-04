@@ -91,6 +91,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TestBus.Commands\TestBus.Commands.csproj">
+      <Project>{8a443a72-a1e9-404b-8287-e639b07c8d0c}</Project>
+      <Name>TestBus.Commands</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
