@@ -18,6 +18,7 @@ namespace TestBus
                 x.ReceiveEndpoint(host, "test_bus", endpoint =>
                 {
                     endpoint.Consumer<PostcodeProvidedConsumer>();
+                    endpoint.Consumer<HelloWorldConsumer>();
                 });
             });
 
