@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBus", "TestBus\TestBus.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBus.Commands", "TestBus.Commands\TestBus.Commands.csproj", "{8A443A72-A1E9-404B-8287-E639B07C8D0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendCommand", "SendCommand\SendCommand.csproj", "{9160A56C-E63D-48CC-831E-7A1482A91BA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8A443A72-A1E9-404B-8287-E639B07C8D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A443A72-A1E9-404B-8287-E639B07C8D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A443A72-A1E9-404B-8287-E639B07C8D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9160A56C-E63D-48CC-831E-7A1482A91BA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9160A56C-E63D-48CC-831E-7A1482A91BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9160A56C-E63D-48CC-831E-7A1482A91BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9160A56C-E63D-48CC-831E-7A1482A91BA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
