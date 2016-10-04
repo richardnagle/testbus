@@ -1,5 +1,4 @@
 ﻿using System;
-using Fri.Xhl.Domain.Events.Interfaces;
 using MassTransit;
 
 namespace TestBus
@@ -18,10 +17,7 @@ namespace TestBus
 
                 x.ReceiveEndpoint(host, "test_bus", endpoint =>
                 {
-                    endpoint.Handler<IPostCodeProvidedEvent>(async context =>
-                    {
-                        await Console.Out.WriteLineAsync($"{DateTime.Now.ToShortTimeString()} Received Postcode: {context.Message.PostCode}");
-                    });
+                    endpoint.Consumer<PostcodeProvidedConsumer>();
                 });
             });
 
