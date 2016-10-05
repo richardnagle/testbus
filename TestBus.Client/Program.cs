@@ -15,24 +15,29 @@ namespace TestBus.Client
 
             do
             {
-                Log("Enter message S <name> for SEND, R <name> for REQUEST/RESPONSE, Q for quit");
+                Log("Enter message S <name> for SEND, R <ip address> for REQUEST/RESPONSE, P <email> for PUBLISH,  Q for quit");
                 Console.Write("> ");
                 var value = Console.ReadLine();
                 var cmd = value?.Length > 0 ? value.ToUpper()[0] : ' ';
-                var name = value?.Length > 2 ? value.Substring(2) : "default";
+                var arg = value?.Length > 2 ? value.Substring(2) : "default";
 
                 switch(cmd)
                 {
                     case 'S':
-                        var command = new HelloWorldCommand{ Name = name };
+                        var command = new HelloWorldCommand{ Name = arg };
                         DistributedBus.Send(command).Wait();
                         break;
 
                     case 'R':
-                        var request = new PingRequest {IPAddress = name};
+                        var request = new PingRequest {IPAddress = arg};
                         var reply = DistributedBus.Request<IPing, IPingReply>(request).Result;
                         var output = $"Reply: Client IP Address {reply.ClientIPAddress} Server IP Addess: {reply.ServerIPAddress}";
                         Log(output, ConsoleColor.Cyan);
+                        break;
+
+                    case 'P':
+                        var @event = new UserRegisteredEvent { EmailAddress = arg};
+                        DistributedBus.Publish(@event);
                         break;
 
                     case 'Q':
@@ -67,5 +72,10 @@ namespace TestBus.Client
     public class PingRequest : IPing
     {
         public string IPAddress { get; set; }
+    }
+
+    public class UserRegisteredEvent : IUserRegistered
+    {
+        public string EmailAddress { get; set; }
     }
 }

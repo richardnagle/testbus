@@ -38,6 +38,7 @@
     <Compile Include="IHelloWorld.cs" />
     <Compile Include="IPing.cs" />
     <Compile Include="IPingReply.cs" />
+    <Compile Include="IUserRegistered.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

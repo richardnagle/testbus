@@ -1,13 +1,14 @@
 ﻿using System;
 using MassTransit;
 
-namespace TestBus.Server
+namespace TestBus.EventEndpoint
 {
+
     class Program
     {
         static void Main()
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Magenta;
 
             var bus = Bus.Factory.CreateUsingRabbitMq(x =>
             {
@@ -17,11 +18,8 @@ namespace TestBus.Server
                     h.Password("guest");
                 });
 
-                x.ReceiveEndpoint(host, "test_bus", endpoint =>
+                x.ReceiveEndpoint(host, "test_bus_events", endpoint =>
                 {
-                    endpoint.Consumer<PostcodeProvidedConsumer>();
-                    endpoint.Consumer<HelloWorldConsumer>();
-                    endpoint.Consumer<PingConsumer>();
                     endpoint.Consumer<UserRegisteredConsumer>();
                 });
             });

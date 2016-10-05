@@ -48,5 +48,11 @@ namespace TestBus.Client
 
             return await client.Request(request);
         }
+
+        public static async Task Publish<T>(T @event)
+            where T: class
+        {
+            await _bus.Publish(@event);
+        }
     }
 }

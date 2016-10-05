@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{350F0C55-F56A-4C39-8BC1-50B1AD3EEEFC}</ProjectGuid>
+    <ProjectGuid>{F77E0280-2D23-44C7-A247-F8E0B6149C9A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestBus.Server</RootNamespace>
-    <AssemblyName>TestBus.Server</AssemblyName>
+    <RootNamespace>TestBus.EventEndpoint</RootNamespace>
+    <AssemblyName>TestBus.EventEndpoint</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,28 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Fri.Xhl.Domain.Events.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fri.Xhl.Domain.Events.Interfaces.9.9.59-beta\lib\Fri.Xhl.Domain.Events.Interfaces.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="MassTransit, Version=3.4.0.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
       <HintPath>..\packages\MassTransit.3.4.1\lib\net452\MassTransit.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MassTransit.Log4NetIntegration, Version=3.4.0.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
-      <HintPath>..\packages\MassTransit.Log4Net.3.4.1\lib\net452\MassTransit.Log4NetIntegration.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="MassTransit.RabbitMqTransport, Version=3.4.0.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
       <HintPath>..\packages\MassTransit.RabbitMQ.3.4.1\lib\net452\MassTransit.RabbitMqTransport.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="metrics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Metrics.1.0.8\lib\net40\metrics.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NewId, Version=2.1.3.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
@@ -69,10 +53,6 @@
       <HintPath>..\packages\RabbitMQ.Client.4.0.1\lib\net451\RabbitMQ.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ServiceStack.Text, Version=3.9.34.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Metrics.1.0.8\lib\net40\ServiceStack.Text.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -81,11 +61,11 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="TestBus.Commands">
+      <HintPath>..\TestBus.Commands\bin\Debug\TestBus.Commands.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HelloWorldConsumer.cs" />
-    <Compile Include="PingConsumer.cs" />
-    <Compile Include="PostcodeProvidedConsumer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRegisteredConsumer.cs" />
@@ -93,12 +73,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TestBus.Commands\TestBus.Commands.csproj">
-      <Project>{8a443a72-a1e9-404b-8287-e639b07c8d0c}</Project>
-      <Name>TestBus.Commands</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
