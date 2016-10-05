@@ -24,7 +24,7 @@ namespace SendCommand
                 switch(cmd)
                 {
                     case 'S':
-                        DistributedBus.Send<IHelloWorld>(new { Name = name }).Wait();
+                        DistributedBus.Send(new HelloWorldCommand{ Name = name }).Wait();
                         break;
 
                     case 'R':
@@ -55,6 +55,11 @@ namespace SendCommand
             Console.WriteLine(message);
             Console.ForegroundColor = DefaultConsoleColour;
         }
+    }
+
+    public class HelloWorldCommand : IHelloWorld
+    {
+        public string Name { get; set; }
     }
 
     public class PingRequest : IPing

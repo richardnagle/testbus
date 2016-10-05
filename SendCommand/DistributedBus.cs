@@ -30,7 +30,7 @@ namespace SendCommand
             _bus.Start();
         }
 
-        public static async Task Send<T>(object command)
+        public static async Task Send<T>(T command)
             where T : class
         {
             var address = new Uri("rabbitmq://localhost/test_bus");
