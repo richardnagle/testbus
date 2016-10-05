@@ -24,11 +24,13 @@ namespace SendCommand
                 switch(cmd)
                 {
                     case 'S':
-                        DistributedBus.Send(new HelloWorldCommand{ Name = name }).Wait();
+                        var command = new HelloWorldCommand{ Name = name };
+                        DistributedBus.Send(command).Wait();
                         break;
 
                     case 'R':
-                        var reply = DistributedBus.Request<IPing, IPingReply>(new PingRequest {IPAddress = name}).Result;
+                        var request = new PingRequest {IPAddress = name};
+                        var reply = DistributedBus.Request<IPing, IPingReply>(request).Result;
                         var output = $"Reply: Client IP Address {reply.ClientIPAddress} Server IP Addess: {reply.ServerIPAddress}";
                         Log(output, ConsoleColor.Cyan);
                         break;
