@@ -7,8 +7,8 @@
     <ProjectGuid>{350F0C55-F56A-4C39-8BC1-50B1AD3EEEFC}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestBus</RootNamespace>
-    <AssemblyName>TestBus</AssemblyName>
+    <RootNamespace>TestBus.Server</RootNamespace>
+    <AssemblyName>TestBus.Server</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

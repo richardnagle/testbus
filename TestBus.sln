@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBus", "TestBus\TestBus.csproj", "{350F0C55-F56A-4C39-8BC1-50B1AD3EEEFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBus.Server", "TestBus.Server\TestBus.Server.csproj", "{350F0C55-F56A-4C39-8BC1-50B1AD3EEEFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBus.Commands", "TestBus.Commands\TestBus.Commands.csproj", "{8A443A72-A1E9-404B-8287-E639B07C8D0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendCommand", "SendCommand\SendCommand.csproj", "{9160A56C-E63D-48CC-831E-7A1482A91BA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBus.Client", "TestBus.Client\TestBus.Client.csproj", "{9160A56C-E63D-48CC-831E-7A1482A91BA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

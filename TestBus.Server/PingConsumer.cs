@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using MassTransit;
 using TestBus.Commands;
 
-namespace TestBus
+namespace TestBus.Server
 {
     public class PingConsumer: IConsumer<IPing>
     {

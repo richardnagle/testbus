@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Fri.Xhl.Domain.Events.Interfaces;
 using MassTransit;
 
-namespace TestBus
+namespace TestBus.Server
 {
     public class PostcodeProvidedConsumer : IConsumer<IPostCodeProvidedEvent>
     {

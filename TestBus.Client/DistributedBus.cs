@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MassTransit;
 
-namespace SendCommand
+namespace TestBus.Client
 {
     public static class DistributedBus
     {

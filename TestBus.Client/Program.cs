@@ -1,7 +1,7 @@
 ﻿using System;
 using TestBus.Commands;
 
-namespace SendCommand
+namespace TestBus.Client
 {
     class Program
     {

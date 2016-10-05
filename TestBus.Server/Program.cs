@@ -1,7 +1,7 @@
 ﻿using System;
 using MassTransit;
 
-namespace TestBus
+namespace TestBus.Server
 {
     class Program
     {
