@@ -37,5 +37,16 @@ namespace SendCommand
             var consumerEndpoint = await _bus.GetSendEndpoint(address);
             await consumerEndpoint.Send<T>(command);
         }
+
+        public static async Task<TReply> Request<TRequest, TReply>(TRequest request)
+            where TRequest: class
+            where TReply: class
+        {
+            var address = new Uri("rabbitmq://localhost/test_bus");
+            var timeout = TimeSpan.FromSeconds(10);
+            var client = _bus.CreateRequestClient<TRequest, TReply>(address, timeout);
+
+            return await client.Request(request);
+        }
     }
 }

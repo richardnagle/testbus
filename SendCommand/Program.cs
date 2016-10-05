@@ -5,25 +5,60 @@ namespace SendCommand
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            Console.ForegroundColor = DefaultConsoleColour;
+
             DistributedBus.Start();
+
+            var quit = false;
 
             do
             {
-                Console.WriteLine("Enter message (or quit to exit)");
+                Log("Enter message S <name> for SEND, R <name> for REQUEST/RESPONSE, Q for quit");
                 Console.Write("> ");
-                string value = Console.ReadLine();
+                var value = Console.ReadLine();
+                var cmd = value?.Length > 0 ? value.ToUpper()[0] : ' ';
+                var name = value?.Length > 2 ? value.Substring(2) : "default";
 
-                if ("quit".Equals(value, StringComparison.OrdinalIgnoreCase))
+                switch(cmd)
                 {
-                    break;
+                    case 'S':
+                        DistributedBus.Send<IHelloWorld>(new { Name = name }).Wait();
+                        break;
+
+                    case 'R':
+                        var reply = DistributedBus.Request<IPing, IPingReply>(new PingRequest {IPAddress = name}).Result;
+                        var output = $"Reply: Client IP Address {reply.ClientIPAddress} Server IP Addess: {reply.ServerIPAddress}";
+                        Log(output, ConsoleColor.Cyan);
+                        break;
+
+                    case 'Q':
+                        quit = true;
+                        break;
+
+                    default:
+                        Log("huh?", ConsoleColor.Red);
+                        break;
                 }
 
-                DistributedBus.Send<IHelloWorld>(new {Name = value, Age = 21}).Wait();
-            }
+            } while (!quit);
 
-            while (true); DistributedBus.Stop();
+            DistributedBus.Stop();
         }
+
+        private const ConsoleColor DefaultConsoleColour = ConsoleColor.Green;
+
+        private static void Log(string message, ConsoleColor colour = DefaultConsoleColour)
+        {
+            Console.ForegroundColor = colour;
+            Console.WriteLine(message);
+            Console.ForegroundColor = DefaultConsoleColour;
+        }
+    }
+
+    public class PingRequest : IPing
+    {
+        public string IPAddress { get; set; }
     }
 }

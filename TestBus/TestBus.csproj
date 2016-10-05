@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HelloWorldConsumer.cs" />
+    <Compile Include="PingConsumer.cs" />
     <Compile Include="PostcodeProvidedConsumer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

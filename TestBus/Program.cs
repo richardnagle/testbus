@@ -7,6 +7,8 @@ namespace TestBus
     {
         static void Main()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
             var bus = Bus.Factory.CreateUsingRabbitMq(x =>
             {
                 var host = x.Host(new Uri("rabbitmq://localhost/"), h =>
@@ -19,6 +21,7 @@ namespace TestBus
                 {
                     endpoint.Consumer<PostcodeProvidedConsumer>();
                     endpoint.Consumer<HelloWorldConsumer>();
+                    endpoint.Consumer<PingConsumer>();
                 });
             });
 
